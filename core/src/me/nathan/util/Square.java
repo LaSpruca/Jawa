@@ -4,8 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.physics.box2d.Shape;
+import me.nathan.Constants;
 
-public class Square implements Shape {
+public class Square {
 	ShapeRenderer renderer;
 
 	int x;
@@ -26,7 +29,6 @@ public class Square implements Shape {
 		renderer = new ShapeRenderer();
 	}
 
-	@Override
 	public void render(SpriteBatch batch) {
 //		System.out.println("X: " + x + " | Y: " + y + " | Width: " + width + " Height: " + height);
 
@@ -34,7 +36,7 @@ public class Square implements Shape {
 
 		renderer.begin(ShapeRenderer.ShapeType.Filled);
 		renderer.setColor(color);
-		renderer.rect(x, Gdx.app.getGraphics().getHeight() - y - height, width, height);
+		renderer.rect(x, Constants.HEIGHT - y - height, width, height);
 		renderer.end();
 
 		batch.begin();
